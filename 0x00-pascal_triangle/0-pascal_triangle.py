@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Pascal Triangle Generator
 """
@@ -23,7 +23,9 @@ def pascal_triangle(n):
         new_row = [1]
         for current_column in range(len(result[current_row - 1]) - 1):
             previous_row = result[current_row - 1]
-            new_row.append(previous_row[current_column] + previous_row[current_column + 1])
+            new_row.append(
+                previous_row[current_column] + previous_row[current_column + 1]
+            )
         new_row.append(1)
         result.append(new_row)
     return result
