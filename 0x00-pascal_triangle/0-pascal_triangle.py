@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Pascal Triangle Generator
 """
@@ -15,17 +15,15 @@ def pascal_triangle(n):
         list: A list of lists representing Pascal's Triangle.
               Returns an empty list if n <= 0.
     """
-    result = []
+    triangle = []
     if n <= 0:
-        return result
-    result = [[1]]
-    for current_row in range(1, n):
+        return triangle
+    triangle = [[1]]
+    for row in range(1, n):
         new_row = [1]
-        for current_column in range(len(result[current_row - 1]) - 1):
-            previous_row = result[current_row - 1]
-            new_row.append(
-                previous_row[current_column] + previous_row[current_column + 1]
-            )
+        for col in range(len(triangle[row - 1]) - 1):
+            previous_row = triangle[row - 1]
+            new_row.append(previous_row[col] + previous_row[col + 1])
         new_row.append(1)
-        result.append(new_row)
-    return result
+        triangle.append(new_row)
+    return triangle
